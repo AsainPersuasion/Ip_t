@@ -1,3 +1,4 @@
+import threading
 import tkinter
 from tkinter import *
 
@@ -7,10 +8,6 @@ root = Tk()
 
 def Write_To_Txt(file_name, info):
     pass
-
-
-
-
 
 def Read_To_Txt(file_name):
     file_info = []
@@ -28,23 +25,32 @@ def Read_To_Txt(file_name):
 
     return file_info
 
+def Counter(label):
+    i=0
+
+    while True:
+        i = i+1
+        label.config(text=str(i))
+
+
+
 def main_screen():
 
-    ##.place(X,Y)
-
-    newWindow = tkinter.Toplevel(root)
-    display_lable = Label(newWindow, width=10, borderwidth=5, text="hello", justify="center",)
+    newWindow = tkinter.Toplevel(root,width=600, height=300)
+    display_lable = Label(newWindow, borderwidth=5, text="test")
     ip_lable = Label(newWindow, text="Please enter your targets IP ")
     ip_input = Entry(newWindow)
     start_attack_button = Button(newWindow, text="Press to start pinging your target")
 
+    display_lable.place(x=200, y=50)
+    ip_lable.place(x=120,y=100)
+    ip_input.place(x=310,y=100)
+    start_attack_button.place(x=200,y=150)
 
-
+    counter_thread  = threading.Thread(target=Counter, args=(display_lable,))
+    counter_thread.start()
 
     root.mainloop()
-
-
-
 
 
 def Login_Checker(username_needed, loggin_info):
