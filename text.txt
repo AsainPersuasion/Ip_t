@@ -1,0 +1,25 @@
+
+Connected to device at 2021-12-27 23:32:13.120640
+Connected to device at 2021-12-27 23:39:31.694977
+Connected to device at 2021-12-27 23:39:38.623224
+Connected to device at 2021-12-27 23:40:00.034141
+Connected to device at 2021-12-27 23:42:14.469629
+Connected to device at 2021-12-27 23:42:37.870801
+Disconnected to decive at 2021-12-27 23:43:07.589639
+Connected to device at 2021-12-27 23:43:45.354256
+Connected to device at 2021-12-27 23:50:56.752313
+Connected to device at 2021-12-27 23:52:02.829418
+Connected to device at 2021-12-27 23:52:04.058411
+Connected to device at 2021-12-27 23:52:04.471016
+Connected to device at 2021-12-27 23:52:04.786669
+Connected to device at 2021-12-27 23:52:05.074984
+Connected to device at 2021-12-27 23:52:05.294504
+Connected to device at 2021-12-27 23:52:05.494767
+Connected to device at 2021-12-27 23:52:05.688388
+Connected to device at 2021-12-27 23:52:05.974421
+Connected to device at 2021-12-27 23:52:06.166794
+Connected to device at 2021-12-27 23:52:06.378247
+Connected to device at 2021-12-27 23:52:06.608557
+Connected to device at 2021-12-27 23:52:06.773893
+Connected to device at 2021-12-27 23:52:06.984636
+Connected to device at 2021-12-27 23:56:42.958893
