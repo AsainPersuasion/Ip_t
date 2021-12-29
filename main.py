@@ -6,7 +6,8 @@ import datetime
 
 root = Tk()
 
-start_ping_pressed = 0
+ip_input_prev = None
+
 
 def Read_To_Txt(file_name):
     file_info = []
@@ -57,10 +58,11 @@ def Target_Online(Ip):
 
 
 
-def Ping_Tracker(lable):
-    targetIp = "192.168.1.73"
+def Ping_Tracker(lable, input):
+
     amount_of_consetuive_disconnects = 0
     amount_of_censetuive_connects = 0
+    targetIp = input.get()
     while True:
         if Target_Online(targetIp) == True and amount_of_consetuive_disconnects == 0 :
             result = "Connected to device at " +str(datetime.datetime.now())
@@ -76,9 +78,17 @@ def Ping_Tracker(lable):
             amount_of_censetuive_connects+=1
             amount_of_consetuive_disconnects = 0
 
-def Start_Pinging(lable):
-    counter_thread  = threading.Thread(target=Ping_Tracker, args = (lable,))
-    counter_thread.start()
+def Start_Pinging(lable, input):
+
+    global ip_input_prev
+    if ip_input_prev != input.get():
+        counter_thread = threading.Thread(target=Ping_Tracker, args=(lable,input, ))
+        counter_thread.start()
+        ip_input_prev = input.get()
+
+
+
+
 
 
 def Main_Screen():
@@ -87,16 +97,19 @@ def Main_Screen():
     display_lable = Label(newWindow, borderwidth=5, text="test")
     ip_lable = Label(newWindow, text="Please enter your targets IP ")
     ip_input = Entry(newWindow)
-    start_attack_button = Button(newWindow, text="Press to start pinging your target", command=lambda: Start_Pinging(display_lable))
+    start_attack_button = Button(newWindow, text="Press to start pinging your target", command=lambda: Start_Pinging(display_lable, ip_input,))
 
-    display_lable.place(x=200, y=50)
+
+
+
+    display_lable.place(x=0, y=50)
     ip_lable.place(x=120,y=100)
     ip_input.place(x=310,y=100)
     start_attack_button.place(x=200,y=150)
-    # args = (ip_input, display_lable,)
 
-
+    print(ip_input.winfo_width())
     root.mainloop()
+
 
 
 def Login_Checker(username_needed, loggin_info):
@@ -107,16 +120,12 @@ def Login_Checker(username_needed, loggin_info):
             if username_input.get() == loggin_info[0][x]:
                 username_needed = False
                 username_location = x
-                print("User name is cimplete")
 
     if username_needed == False:
         if password_input.get() == loggin_info[1][username_location]:
-            print("Pswd is corrects")
-            global access_to_system
             access_to_system = True
 
     if access_to_system == True:
-        print("Welcome to the system")
         Main_Screen()
     else:
         print("access dineied")
@@ -136,7 +145,7 @@ if __name__ == '__main__':
 
     Main_Screen()
 
-    # root.mainloop()
+    root.mainloop()
 
 
 
